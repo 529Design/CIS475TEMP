@@ -9,6 +9,8 @@ $metaWebPageEditor = "Visual Studio Code";
 $metaWebServerSoftware = "WAMP";
 $metaTag=<<<EOD
 <head>
+<link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
 <title>$title</title>
 <meta name="description" content=$metaDesc></meta>

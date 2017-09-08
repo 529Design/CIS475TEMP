@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
     <?php include 'vars.php'; include 'nav.php';?>
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-</head>
-
+    
 <body>
 
     <div id="nav">
@@ -79,8 +75,9 @@
             </div>
 
             <div id=clock>
-                <?php echo(strftime("%m/%d/%Y %H:%M"));?>
-                
+                <?php echo(strftime("%m/%d/%Y %H:%M")); 
+                echo '<br>This site is currenty optimized for Firefox and Chrome on desktop<br>';?>
+                <a href='download.php?file=index.php' download>index.php download</a>
             </div>
 
     </div>
