@@ -10,7 +10,7 @@ td {
 
 /*This sets every other table row to have a different background color */
 
-tr:nth-child(even) {
+.odd {
     background: #80C1B5;
 }
 

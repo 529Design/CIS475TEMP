@@ -20,7 +20,13 @@
 
     // data rows
     foreach( $array as $key=>$value){
-        $myTable .= '<tr>';
+        //add test for if number is odd. create css class for odd rows.
+        if ($number%2 == 0){
+            $myTable .= '<tr>';
+        }
+        else{
+            $myTable .= '<tr class="odd">';
+        }        
             $myTable .= '<td>' . $number .'</td>';
             $myTable .= '<td>' . htmlspecialchars($key) .'</td>';
             $myTable .= '<td>' . htmlspecialchars($value) .'</td>';
