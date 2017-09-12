@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--Last updated 9/11/17-->
+    <?php include 'vars.php'; include 'nav.php'; include 'functions.php'?>
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
 
-    <?php include 'vars.php'; include 'nav.php';?>
-    
 <body>
 
     <div id="nav">
@@ -72,13 +74,14 @@
                 </ol>
             </div>
             <!--END CIS475**********************-->
-            </div>
+        </div>
 
-            <div id=clock>
-                <?php echo(strftime("%m/%d/%Y %H:%M")); 
-                echo '<br>This site is currenty optimized for Firefox and Chrome on desktop<br>';?>
-                <a href='download.php?file=index.php' download>index.php download</a>
-            </div>
+        <div id=clock>
+            <?php echo(strftime("%m/%d/%Y %H:%M")); 
+            echo '<br>This site is currenty optimized for Firefox and Chrome on desktop<br>';?>
+            <a href='download.php?file=index.php' download>index.php download</a><br>
+            <a href='download.php?file=vars.php' download>vars.php download</a>
+        </div>
 
     </div>
 </body>

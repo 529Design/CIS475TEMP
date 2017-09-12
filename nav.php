@@ -9,7 +9,7 @@ $CIS427 = array("#href1"=>"Open Discussions",
 //A Key Value Pair array storing assignment links as key and names as value
 $CIS475 = array("serverSetup.php"=>"PHP/MySQL Server Setup",
                 "index.php"=>"First PHP Web Page",
-                "#href7"=>"PHP Loop, Function, Arrays",
+                "lfa.php"=>"PHP Loop, Function, Arrays",
                 "#href8"=>"PHP Read and Write a Text File",
                 "#href9"=>"MySQL Table",
                 "#href10"=>"PHP Table from MySQL Table",
