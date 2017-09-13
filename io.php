@@ -39,6 +39,7 @@
                     <a href='download.php?file=cis475_ior.txt' download>cis475_ior.txt download</a><br>
                     <a href='download.php?file=vars.php' download>vars.php download</a><br>
                     <a href='download.php?file=functions.php' download>functions.php download</a>
+                    <a href='download.php?file=io.php' download>io.php download</a>
                 </div>                
                 <?php
                 echo '<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'. "This page parses an input file 
