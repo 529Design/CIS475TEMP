@@ -7,6 +7,7 @@ $metaName = "Jeffrey Marron a.k.a. JMAR";
 $metaViewport = "width=device-width, initial-scale=1.0";
 $metaWebPageEditor = "Visual Studio Code";
 $metaWebServerSoftware = "WAMP";
+
 $metaTag=<<<EOD
 <head>
 <link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
@@ -20,6 +21,7 @@ $metaTag=<<<EOD
 <meta name="editor" content=$metaWebPageEditor></meta>
 <meta name="server" content=$metaWebServerSoftware></meta>
 </head>
+
 EOD;
 echo $metaTag;//Echos the meta data
 

@@ -3,7 +3,6 @@
 
 <head>
     <?php include 'vars.php'; include 'nav.php';?>
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
     <link rel="stylesheet" type="text/css" href="css/serverSetup.css" />
 </head>
 

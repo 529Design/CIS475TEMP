@@ -2,10 +2,6 @@
 <html lang="en">
 <!--Last updated 9/11/17-->
     <?php include 'vars.php'; include 'nav.php'; include 'functions.php'?>
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-
-<body>
 
     <div id="nav">
         <ul id="mainNav">
@@ -26,7 +22,8 @@
 
         </ul>
     </div>
-
+    
+<body>
     <div class ="box" id="box1">
 
         <div id="jumbotron">
