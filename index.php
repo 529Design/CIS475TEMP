@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Last updated 9/11/17-->
-    <?php  include 'vars.php'; include 'nav.php'; include 'functions.php';fetchMetaData(__FILE__);?>
 
+<?php  include 'vars.php'; include 'nav.php'; include 'functions.php';fetchMetaData(__FILE__);?>
+
+<body>
     <div id="nav">
         <ul id="mainNav">
             <li><a href="index.php">Home</a></li>
@@ -23,7 +24,6 @@
         </ul>
     </div>
     
-<body>
     <div class ="box" id="box1">
 
         <div id="jumbotron">
@@ -52,9 +52,9 @@
 
             <!--CIS427**********************-->
             <div>
+                <?php echo '<h2>'. "CIS 427" .'</h2>'; ?>
                 <ol>
-                    <?php
-                    echo '<h2>'. "CIS 427" .'</h2>';           
+                    <?php       
                     listArray($CIS427);//calls the listArray function on the CIS427 array           
                     ?>
                 </ol>
@@ -63,9 +63,9 @@
 
             <!--CIS475**********************-->
             <div>
+                <?php echo '<h2>'. "CIS 475" .'</h2>'; ?>
                 <ol>
                     <?php
-                    echo '<h2>'. "CIS 475" .'</h2>';
                     listArray($CIS475);//calls the listArray function on the CIS475 array           
                     ?>
                 </ol>

@@ -36,31 +36,20 @@ class MetaData {
                 The head data is then returned to the file calling it
     */
     public function createHead(){
-        //these assignments are used because I couldn't find a way to get
-        //class objects or functions working properly with HEREDOC
-        $title = $this->title;
-        $metaDesc=$this->metaDesc;
-        $metaKeywords=$this->metaKeywords;
-        $metaName = $this->metaName;
-        $metaViewport = $this->metaViewport;
-        $metaWebPageEditor = $this->metaWebPageEditor;
-        $metaWebServerSoftware = $this->metaWebServerSoftware;
-        $siteCSS = $this->siteCSS;
-        $pageCSS = $this->pageCSS;
 
 //uses HEREDOC to create html head info
 $metaTag=<<<EOD
 <head>
-<link rel="stylesheet" type="text/css" href=$siteCSS />
-<link rel="stylesheet" type="text/css" href=$pageCSS />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-<title>$title</title>
-<meta name="description" content=$metaDesc></meta>
-<meta name="keywords" content=$metaKeywords></meta>
-<meta name="author" content=$metaName</meta>
-<meta name="viewport" content=$metaViewport></meta>
-<meta name="editor" content=$metaWebPageEditor></meta>
-<meta name="server" content=$metaWebServerSoftware></meta>
+<link rel="stylesheet" type="text/css" href='$this->siteCSS' />
+<link rel="stylesheet" type="text/css" href='$this->pageCSS' />
+<title>'$this->title'</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content='$this->metaDesc'>
+<meta name="keywords" content='$this->metaKeywords'>
+<meta name="author" content='$this->metaName'>
+<meta name="viewport" content='$this->metaViewport'>
+<meta name="editor" content='$this->metaWebPageEditor'>
+<meta name="server" content='$this->metaWebServerSoftware'>
 </head>
 EOD;
 return $metaTag;//this varialbe now contains all the metadata
@@ -96,28 +85,28 @@ $pages = array(
         "index.php",//page file name
         "JMAR's Lair",//page title
         "homepage for CIS427 and CIS475",//meta description
-        "'JMAR, New York', NY, 'Buffalo', 'CIS475', 'CIS427', 'Django better than PHP'",//keywords
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, PHP rocks",//keywords
         "css/index.css"//CSS for this page
     ),
     new MetaData(
         "lfa.php",//page file name
         "Loop Function Array",//page title
         "this is a demonstration of loops, functions, and arrays in PHP",//meta description
-        "'JMAR, New York', NY, 'Buffalo', 'CIS475', 'CIS427', 'loop', 'function', 'array', 'PHP'",//keywords
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, loop, function, array, PHP",//keywords
         "css/lfa.css"//CSS for this page
     ),
     new MetaData(
         "io.php",//page file name
         "Input Output",//page title
         "Read from an input file, displasy data, and write reverse to output file in PHP",//meta description
-        "'JMAR, New York', NY, 'Buffalo', 'CIS475', 'CIS427', 'loop', 'input', 'output','PHP'",//keywords
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, loop, input, output,PHP",//keywords
         "css/lfa.css"//CSS for this page
     ),
     new MetaData(
         "serverSetup.php",//page file name
         "Server Setup",//page title
         "Screen caps of the test WAMP server for this site",//meta description
-        "'JMAR, New York', NY, 'Buffalo', 'CIS475', 'CIS427', 'WAMP', 'server','PHP'",//keywords
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, WAMP, server,PHP",//keywords
         "css/serverSetup.css"//CSS for this page
     )
 );
