@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Last updated 9/11/17-->
-    <?php include 'vars.php'; include 'nav.php'; include 'functions.php'?>
+    <?php  include 'vars.php'; include 'nav.php'; include 'functions.php';fetchMetaData(__FILE__);?>
 
     <div id="nav">
         <ul id="mainNav">

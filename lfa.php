@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php include 'vars.php'; include 'nav.php'; include 'functions.php';?>
-    <link rel="stylesheet" type="text/css" href="css/lfa.css" />
-    
+<?php  include 'vars.php'; include 'nav.php'; include 'functions.php';fetchMetaData(__FILE__);?>
     <?php
         //An array containing month info
         $months = array(

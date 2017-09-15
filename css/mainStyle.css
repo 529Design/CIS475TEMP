@@ -94,3 +94,17 @@ a {
     -webkit-transition: color .2s ease-out, background .3s ease-in;
     transition: color .2s ease-out, background .3s ease-in;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(450px, auto);
+    padding: 1em;
+}
+
+.wrapper>div {
+    background: #eee;
+    padding: 50px 2em 2em 2em;
+    -webkit-box-shadow: 0px 0px 20px rgba(44, 44, 44, .3);
+}

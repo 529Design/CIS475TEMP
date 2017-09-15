@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <?php include 'vars.php'; include 'nav.php';?>
-    <link rel="stylesheet" type="text/css" href="css/serverSetup.css" />
-</head>
+<?php  include 'vars.php'; include 'nav.php'; include 'functions.php';fetchMetaData(__FILE__);?>
 
 <body>
 

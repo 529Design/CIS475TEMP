@@ -59,7 +59,7 @@
 
 
 /* File Parser - retrieves data from an input file, parses into Month objets, returns Month array*/
-function file_parser($fileArray){
+function month_file_parser($fileArray){
     $ParsedMonths = array();//used to store an array of Month objects
 
     foreach($fileArray as $line)//each line contains all CSV data
