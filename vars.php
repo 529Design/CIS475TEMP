@@ -31,7 +31,7 @@ class MetaData {
     }
 
     /*
-   Create Head - assigns temporary variables the MetaData class object values
+   Create Head - uses MetaData class object values
                 and then uses HEREDOC to place those values into an HTML head.
                 The head data is then returned to the file calling it
     */
@@ -108,7 +108,28 @@ $pages = array(
         "Screen caps of the test WAMP server for this site",//meta description
         " JMAR, New York, NY, Buffalo, CIS475, CIS427, WAMP, server,PHP",//keywords
         "css/serverSetup.css"//CSS for this page
-    )
+    ),
+    new MetaData(
+        "db.php",//page file name
+        "MYSQL setup",//page title
+        "Setup MYSQL database on server",//meta description
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, MYSQL, output,PHP",//keywords
+        "css/db.css"//CSS for this page
+    ),
+    new MetaData(
+        "php_mysql_table.php",//page file name
+        "MYSQL table",//page title
+        "creates a table from a MYSQL database",//meta description
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, MYSQL, table,PHP",//keywords
+        "css/lfa.css"//CSS for this page
+    ),
+    new MetaData(
+        "php_mysql_form.php",//page file name
+        "mysql form",//page title
+        "adds data to a mysql table",//meta description
+        " JMAR, New York, NY, Buffalo, CIS475, CIS427, MYSQL, table,PHP",//keywords
+        "css/php_mysql_form.css"//CSS for this page
+    )  
 );
 
 ?>

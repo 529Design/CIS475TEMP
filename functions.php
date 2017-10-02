@@ -100,8 +100,200 @@ function outputFile_reverse($array){
  }
 //END Output File Reverse*******************************
 
-//QUOTE GENERATOR *************************
-//An array of quotes from Bruce Lee
+/* Months to SQL - this function takes month data from an input file and
+    creates a mySQL table with the parsed info*/
+function months_to_sql(){
+
+$InFile = file('cis475_io.txt');
+$monthsArray = month_file_parser($InFile);
+
+//creates button
+$button=<<<EOD
+    <form method="post">
+    <input type="submit" name="imbtn" id="imbtn" value="Import Months"/><br/>
+    </form>
+EOD;
+echo $button;
+
+    if(array_key_exists('imbtn',$_POST)){//executes code when button is pressed
+    
+        $conn = Connect();
+
+        $conn->query("DROP TABLE IF EXISTS monthsTable");//deletes table if it already exists
+            
+    //sql to create table
+        $sql = "CREATE TABLE monthsTable (
+        monthsID INT(2),
+        monthName CHAR(10),
+        monthDays INT(2)
+        )";
+
+    //tests if sql table was created
+    if ($conn->query($sql) === TRUE) {
+        echo "monthsTable created successfully";
+        } else {
+            echo "Error creating table: " . $conn->error;//outputs error code
+        }
+
+    //inserts each $monthsArrray object into the monthsTable
+       foreach($monthsArray as $item){
+        $sql = "INSERT INTO monthsTable (monthsID, monthName, monthDays)
+        VALUES ('$item->IDnum', '$item->monthName', '$item->numDays')";
+        $conn->query($sql);//sends $sql as a query through the open connection
+       }
+
+        $conn->close();//close connection
+    }
+}
+//END Months to SQL *****************************
+
+/* Create MYSQL Table - This is for portability to create a functional MYSQL table
+    in different server environments*/
+function create_mysql_table(){
+    $conn = Connect();
+
+        $conn->query("DROP TABLE IF EXISTS contactsTable");//deletes table if it already exists
+            
+    //sql to create table
+        $sql = "CREATE TABLE contactsTable (
+        contactID INT NOT NULL AUTO_INCREMENT,
+        contactFirstName CHAR(15),
+        contactLastName CHAR(30),
+        contactAddress CHAR(30),
+        contactCity CHAR(30),
+        contactState CHAR(2),
+        contactZipcode CHAR(9),
+        contactPhone CHAR(10),
+        contactEmail CHAR(60),
+        contactComments LONGTEXT,
+        contactDate DATE,
+        PRIMARY KEY (contactID)
+        )";
+
+    //tests if sql table was created
+        if ($conn->query($sql) === TRUE) {
+            echo "contactsTable created successfully";
+        } else {
+            echo "Error creating table: " . $conn->error;//outputs error code
+        }
+        $conn->close();//close connection
+
+}
+//END Create MYSQL Table******************************
+
+/* MYSQL Parse Table - this function makes a connection to a MYSQL database
+    and extracts data from a table.  It then calls the build table function
+    and echos that data back to the page calling it*/
+function mysql_parse_table(){
+        $ParsedMonths = array();//used to store an array of Month objects
+
+        $conn = Connect();
+    
+        $sql = "SELECT * FROM monthsTable";//selects all data from the monthstable in the mysql database
+        $result = $conn->query($sql);
+    
+
+        if ($result->num_rows > 0) {
+    // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $tempMonth = new Month ($row['monthsID'],$row['monthName'],$row['monthDays']);//creates new month object
+                array_push($ParsedMonths, $tempMonth);//Pushes a new Month object into the Parsed Months array
+            }
+
+        echo build_table($ParsedMonths);//calls the build table function and echos the result to HTML
+        } 
+        else {
+            echo "0 results";
+        }
+    $conn->close();//closes the connection
+}
+//END MYSQL Parse Table **********************************
+
+/* Connect - establishes a connection to a MYSQL database on a server*/
+function Connect()
+{
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $dbname = "marronja01";
+ 
+ // Create connection
+ $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die("Connection failed: " . $conn->connect_error);
+
+ return $conn;
+}
+//END Connect***************************************************************
+
+
+/* Select States - generates a select drop down menu for an html form which outputs the state abbreviation*/
+function select_states(){
+    echo
+    '<select name="contactState">   
+    <option value="">Select Option</option>
+    <option value="AL">Alabama</option>
+    <option value="AK">Alaska</option>
+    <option value="AZ">Arizona</option>
+    <option value="AR">Arkansas</option>
+    <option value="CA">California</option>
+    <option value="CO">Colorodo</option>
+    <option value="CT">Connecticut</option>
+    <option value="DE">Delaware</option>
+    <option value="FL">Florida</option>
+    <option value="GA">Georgia</option>
+    <option value="HI">Hawaii</option>
+    <option value="ID">Idaho</option>
+    <option value="IL">Illinois</option>
+    <option value="IN">Indiana</option>
+    <option value="IA">Iowa</option>
+    <option value="KS">Kansas</option>
+    <option value="KY">Kentucky</option>
+    <option value="LA">Louisiana</option>
+    <option value="ME">Maine</option>
+    <option value="MD">Maryland</option>
+    <option value="MA">Massachusetts</option>
+    <option value="MI">Michigan</option>
+    <option value="MN">Minnesota</option>
+    <option value="MS">Mississippi</option>
+    <option value="MO">Missouri</option>
+    <option value="MT">Montana</option>
+    <option value="NE">Nebraska</option>
+    <option value="NV">Nevada</option>
+    <option value="NH">New Hampshire</option>
+    <option value="NJ">New Jersey</option>
+    <option value="NM">New Mexico</option>
+    <option value="NY">New York</option>
+    <option value="NC">North Carolina</option>
+    <option value="ND">North Dakota</option>
+    <option value="OH">Ohio</option>
+    <option value="OK">Oklahoma</option>
+    <option value="OR">Oregon</option>
+    <option value="PA">Pennsylvania</option>
+    <option value="RI">Rhode Island</option>
+    <option value="SC">South Carolina</option>
+    <option value="SD">South Dakota</option>
+    <option value="TN">Tennessee</option>
+    <option value="TX">Texas</option>
+    <option value="UT">Utah</option>
+    <option value="VT">Vermont</option>
+    <option value="VA">Virginia</option>
+    <option value="WA">Washington</option>
+    <option value="WV">West Virginia</option>
+    <option value="WI">Wisconsin</option>
+    <option value="WY">Wyoming</option>
+    </select>';
+}
+//END Select States**************************************
+
+/*Test Input - this clears input data and helps protect against attacks */
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+return $data;
+}
+//END Test Input *****************************************
+
+/* QUOTE GENERATOR - An array of quotes from Bruce Lee*/
 $Quotes = array("Adapt what is useful, reject what is useless, and add what is specifically your own.",
 "If you spend too much time thinking about a thing, you'll never get it done.",
 "If you love life, don't waste time, for time is what life is made up of.",
