@@ -18,10 +18,8 @@ $CIS475 = array("serverSetup.php"=>"PHP/MySQL Server Setup",
 
 //List Array Function*************************                
 function listArray($someArray){  
-    foreach ($someArray as $key=>$value){
-        echo '<li>';//creates list element
-        echo "<a href=".$key.">".$value."</a>";//link is $key and $value is displayed name
-        echo '</li>';
+    foreach ($someArray as $key=>$value){//link is $key and $value is displayed name
+        echo '<li>' . "<a href=".$key.">".$value."</a>" . '</li>';
     }
 }
 //END List Array Function**********************

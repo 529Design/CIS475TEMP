@@ -44,6 +44,10 @@
     -webkit-box-shadow: 0px 0px 20px rgba(44, 44, 44, .3);
 }
 
+#clock a {
+    height: 20px;
+}
+
 h2 {
     color: #0B2EB6;
 }
